@@ -41,6 +41,7 @@ void main() {
                 onPressed: () {},
                 child: const Text('Submit2'),
               ),
+              Icon(Icons.favorite,color: Colors.cyan[300],size: 50,)
             ],
           ),
           Image.network('https://t3.ftcdn.net/jpg/03/01/67/48/360_F_301674825_ib63RVHvt7e6Rgq5ufFO1TOBt1fYnEJL.jpg',
