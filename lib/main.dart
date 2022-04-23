@@ -2,10 +2,26 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(primarySwatch: Colors.cyan),
-    home: Scaffold(
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.cyan),
+      home: HomeScreenWidget(),
+    );
+  }
+}
+
+class HomeScreenWidget extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(
         title: const Text(
           'By The Name Of ALLAH',
@@ -18,39 +34,59 @@ void main() {
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'By the name of ALLAH',
-            textDirection: TextDirection.ltr,
-            style: TextStyle(fontSize: 18),
-          ),
-          const Text(
-            'He is the only one',
-            textDirection: TextDirection.ltr,
-            style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
-          ),
+          TextSection(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Cancel'),
-              ),
-              const SizedBox(width: 10,),
-
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Submit2'),
-              ),
-              Icon(Icons.favorite,color: Colors.cyan[300],size: 50,)
+              ButtonSection()
             ],
           ),
-          Image.network('https://t3.ftcdn.net/jpg/03/01/67/48/360_F_301674825_ib63RVHvt7e6Rgq5ufFO1TOBt1fYnEJL.jpg',
-          width:double.infinity,
-          height: 300,
-          fit: BoxFit.cover,
-          )
+          ImageSectionHome()
         ],
       )),
-    ),
-  ));
+    );
+  }
+
+  Column ButtonSection() {
+    return Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Cancel'),
+                ),
+                const SizedBox(width: 10,),
+
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Submit2'),
+                ),
+                Icon(Icons.favorite,color: Colors.cyan[300],size: 50,),
+              ],
+            );
+  }
+
+  Column TextSection() {
+    return Column(
+          children: [
+            const Text(
+              'By the name of ALLAH',
+              textDirection: TextDirection.ltr,
+              style: TextStyle(fontSize: 18),
+            ),
+            const Text(
+              'He is the only one',
+              textDirection: TextDirection.ltr,
+              style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+            ),
+          ],
+        );
+  }
+
+  Image ImageSectionHome() {
+    return Image.network('https://t3.ftcdn.net/jpg/03/01/67/48/360_F_301674825_ib63RVHvt7e6Rgq5ufFO1TOBt1fYnEJL.jpg',
+        width:double.infinity,
+        height: 300,
+        fit: BoxFit.cover,
+        );
+  }
 }
