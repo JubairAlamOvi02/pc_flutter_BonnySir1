@@ -1,5 +1,6 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled2/dice_game_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.cyan),
-      home: HomeScreenWidget(),
+     // home: HomeScreenWidget(),
+     home: DiceGame(),
     );
   }
 }
@@ -67,13 +69,13 @@ class HomeScreenWidget extends StatelessWidget {
 
   Column TextSection() {
     return Column(
-          children: [
-            const Text(
+          children: const [
+            Text(
               'By the name of ALLAH',
               textDirection: TextDirection.ltr,
               style: TextStyle(fontSize: 18),
             ),
-            const Text(
+            Text(
               'He is the only one',
               textDirection: TextDirection.ltr,
               style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
