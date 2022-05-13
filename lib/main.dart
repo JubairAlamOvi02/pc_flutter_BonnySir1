@@ -1,6 +1,7 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled2/dice_game_page.dart';
+import 'package:untitled2/listViewPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.cyan),
      // home: HomeScreenWidget(),
-     home: DiceGame(),
+     //home: DiceGame(),
+      home: ListViewPage(),
     );
   }
 }
