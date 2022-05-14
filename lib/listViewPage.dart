@@ -16,8 +16,21 @@ class _ListViewPageState extends State<ListViewPage> {
         title: Text('Movie List'),
       ),
       body: ListView(
-        children: movies.map((movie) => ListTile(
-          title: Text(movie.name!),
+        children: movies.map((movie) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            tileColor: Colors.cyan.shade100,
+            title: Text(movie.name!),
+            subtitle: Text(movie.catagory!),
+            leading: Image.asset(movie.image!,width: 100,height: 100,fit:BoxFit.cover,),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.star,color:Colors.amber,),
+                Text(movie.rating.toString()),
+              ],
+            ),
+          ),
         )).toList(),
 
       ),
