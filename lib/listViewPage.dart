@@ -16,40 +16,76 @@ class _ListViewPageState extends State<ListViewPage> {
       appBar: AppBar(
         title: Text('Movie List'),
       ),
-      body: ListView(
-        children: movies
-            .map((movie) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MovieDetailsPage(movie)));
-                    },
-                    tileColor: Colors.cyan.shade100,
-                    title: Text(movie.name!),
-                    subtitle: Text(movie.catagory!),
-                    leading: Image.asset(
-                      movie.image!,
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                    ),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        Text(movie.rating.toString()),
-                      ],
-                    ),
-                  ),
-                ))
-            .toList(),
+      body: ListView.builder(
+        itemCount: movies.length,
+        itemBuilder: (context, index) =>Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MovieDetailsPage(movies[index])));
+            },
+            tileColor: Colors.cyan.shade100,
+            title: Text(movies[index].name!),
+            subtitle: Text(movies[index].catagory!),
+            leading: Image.asset(
+              movies[index].image!,
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                Text(movies[index].rating.toString()),
+              ],
+            ),
+          ),
+        ) ,
       ),
+    );
+  }
+
+  ListView buildListView(BuildContext context) {
+    return ListView(
+      children: movies
+          .map((movie) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MovieDetailsPage(movie)));
+                  },
+                  tileColor: Colors.cyan.shade100,
+                  title: Text(movie.name!),
+                  subtitle: Text(movie.catagory!),
+                  leading: Image.asset(
+                    movie.image!,
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      Text(movie.rating.toString()),
+                    ],
+                  ),
+                ),
+              ))
+          .toList(),
     );
   }
 }
