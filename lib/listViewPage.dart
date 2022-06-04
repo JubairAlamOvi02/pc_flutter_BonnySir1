@@ -27,7 +27,7 @@ class _ListViewPageState extends State<ListViewPage> {
                   MaterialPageRoute(
                       builder: (context) => MovieDetailsPage(movies[index])));
             },
-            tileColor: Colors.cyan.shade100,
+            tileColor: index.isEven? Colors.cyan.shade100:Colors.cyan.shade700,
             title: Text(movies[index].name!),
             subtitle: Text(movies[index].catagory!),
             leading: Image.asset(

@@ -6,6 +6,8 @@ class MovieDetailsPage extends StatefulWidget {
   final Movie movie;
 
 
+
+
   MovieDetailsPage(this.movie);
 
   @override
