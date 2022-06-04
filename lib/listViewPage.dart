@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled2/movie_details_page.dart';
+import 'package:untitled2/movie_item.dart';
 import 'package:untitled2/temp_db.dart';
 
 class ListViewPage extends StatefulWidget {
@@ -18,36 +19,7 @@ class _ListViewPageState extends State<ListViewPage> {
       ),
       body: ListView.builder(
         itemCount: movies.length,
-        itemBuilder: (context, index) =>Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MovieDetailsPage(movies[index])));
-            },
-            tileColor: index.isEven? Colors.cyan.shade100:Colors.cyan.shade700,
-            title: Text(movies[index].name!),
-            subtitle: Text(movies[index].catagory!),
-            leading: Image.asset(
-              movies[index].image!,
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
-            ),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                Text(movies[index].rating.toString()),
-              ],
-            ),
-          ),
-        ) ,
+        itemBuilder: (context, index) =>MovieItem(movies[index], index) ,
       ),
     );
   }
