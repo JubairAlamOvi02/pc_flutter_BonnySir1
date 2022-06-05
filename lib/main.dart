@@ -28,7 +28,7 @@ class HomeScreenWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'By The Name Of ALLAH',
+          'By The Name Of ALLAH , ',
           textDirection: TextDirection.ltr,
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontStyle: FontStyle.italic),
